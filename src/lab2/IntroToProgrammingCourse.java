@@ -5,19 +5,28 @@ import javax.swing.JOptionPane;
 /**
  * Describe responsibilities here.
  *
- * @author      your name goes here
+ * @author      Emma Edgar
  * @version     1.00
  */
-public class IntroToProgrammingCourse {
+public class IntroToProgrammingCourse implements ProgrammingCourse{
     private String courseName;
     private String courseNumber;
     private double credits;
-
+    private String prerequisites;
+    
+    /*
+     * Constructor
+     */
     public IntroToProgrammingCourse(String courseName, String courseNumber) {
         this.setCourseName(courseName);
         this.setCourseNumber(courseNumber);
     }
 
+    
+    /*
+     * Course Number
+     */
+    
     public String getCourseNumber() {
         return courseNumber;
     }
@@ -31,6 +40,10 @@ public class IntroToProgrammingCourse {
         this.courseNumber = courseNumber;
     }
 
+    
+    /*
+     * Credits
+     */
     public double getCredits() {
         return credits;
     }
@@ -44,6 +57,10 @@ public class IntroToProgrammingCourse {
         this.credits = credits;
     }
 
+    
+    /*
+     * Coures Name
+     */
     public String getCourseName() {
         return courseName;
     }
@@ -57,5 +74,19 @@ public class IntroToProgrammingCourse {
         this.courseName = courseName;
     }
 
-    
+    /*
+     * Prerequisites
+     */
+    public String getPrerequisites() {
+        return prerequisites;
+    }
+
+    public final void setPrerequisites(String prerequisites) {
+        if(prerequisites == null || prerequisites.length() == 0) {
+            JOptionPane.showMessageDialog(null,
+                    "Error: prerequisites cannot be null of empty string");
+            System.exit(0);
+        }
+        this.prerequisites = prerequisites;
+    }
 }
